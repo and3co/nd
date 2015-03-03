@@ -42,8 +42,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx_hal.h"
 #include "stm32l1xx_nucleo.h"
-#include "stm32_adafruit_sd.h"
-#include "stm32_adafruit_lcd.h"
+//#include "stm32_adafruit_sd.h"
+//#include "stm32_adafruit_lcd.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
