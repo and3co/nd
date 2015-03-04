@@ -558,12 +558,13 @@ ARM Macro Assembler    Page 9
   362 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=stm32l15
-2re_nucleo\startup_stm32l152xe.d -ostm32l152re_nucleo\startup_stm32l152xe.o -ID
-:\prv\keilp\nd\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Devic
-e\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefin
-e="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 513" --predefine="STM
-32L1XX_XL SETA 1" --list=startup_stm32l152xe.lst startup_stm32l152xe.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=stm32l152re_nucleo\startup_stm32l152xe.d -ostm32l152re_nucleo\star
+tup_stm32l152xe.o -ID:\kproj\nd\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\Keil\STM32L1x
+x_DFP\1.0.2\Device\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL S
+ETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514"
+ --predefine="STM32L1XX_XL SETA 1" --list=startup_stm32l152xe.lst startup_stm32
+l152xe.s
 
 
 
