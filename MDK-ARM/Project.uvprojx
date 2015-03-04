@@ -363,7 +363,7 @@
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls>--C99</MiscControls>
-              <Define>STM32L152xE,USE_STM32L1XX_NUCLEO,USE_HAL_DRIVER,</Define>
+              <Define>STM32L152xE,USE_STM32L1XX_NUCLEO,USE_HAL_DRIVER,GLCD_DEVICE_STM32L1XX,GLCD_CONTROLLER_PCD8544,GLCD_USE_SPI</Define>
               <Undefine></Undefine>
               <IncludePath>..\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\STM32L1xx_Nucleo;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\Components\Common;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\Log;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\CPU</IncludePath>
             </VariousControls>
@@ -656,7 +656,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Example/MDK-ARM</GroupName>
+          <GroupName>Project/MDK-ARM</GroupName>
           <Files>
             <File>
               <FileName>startup_stm32l152xe.s</FileName>
@@ -666,7 +666,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Example/User</GroupName>
+          <GroupName>Project/User</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -682,6 +682,51 @@
               <FileName>stm32l1xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32l1xx_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Libs/GLCD</GroupName>
+          <Files>
+            <File>
+              <FileName>glcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\glcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>graphics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\graphics.c</FilePath>
+            </File>
+            <File>
+              <FileName>graphs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\graphs.c</FilePath>
+            </File>
+            <File>
+              <FileName>text.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\text.c</FilePath>
+            </File>
+            <File>
+              <FileName>text_tiny.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\text_tiny.c</FilePath>
+            </File>
+            <File>
+              <FileName>unit_tests.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\unit_tests.c</FilePath>
+            </File>
+            <File>
+              <FileName>PCD8544.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\controllers\PCD8544.c</FilePath>
+            </File>
+            <File>
+              <FileName>STM32L1xx_glcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c</FilePath>
             </File>
           </Files>
         </Group>

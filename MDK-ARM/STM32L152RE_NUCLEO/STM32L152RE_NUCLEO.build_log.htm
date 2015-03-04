@@ -26,35 +26,79 @@ Project File Date:  03/03/2015
 
 <h2>Output:</h2>
 Build target 'STM32L152RE_NUCLEO'
-compiling glcd.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\glcd.c: 0 warnings, 1 error
-compiling graphics.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\graphics.c: 0 warnings, 1 error
-compiling graphs.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\graphs.c: 0 warnings, 1 error
-compiling text.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\text.c: 0 warnings, 1 error
-compiling text_tiny.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\text_tiny.c: 0 warnings, 1 error
-compiling unit_tests.c...
-..\libs\andygock-glcd-1010cbc\glcd.h(90): error:  #35: #error directive: "Device not supported or defined"
-        #error "Device not supported or defined"
-..\libs\andygock-glcd-1010cbc\unit_tests.c: 0 warnings, 1 error
-compiling PCD8544.c...
-compiling STM32F0xx - Copy.c...
-"no source": Error:  #5: cannot open source input file "..\libs\andygock-glcd-1010cbc\devices\STM32F0xx - Copy.c": No such file or directory
-..\libs\andygock-glcd-1010cbc\devices\STM32F0xx - Copy.c: 0 warnings, 1 error
-"STM32L152RE_NUCLEO\STM32L152RE_NUCLEO.axf" - 6 Error(s), 0 Warning(s).
+compiling STM32L1xx_glcd.c...
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(60): warning:  #223-D: function "GPIO_StructInit" declared implicitly
+        GPIO_StructInit(&GPIO_InitStructure);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(61): warning:  #223-D: function "SPI_StructInit" declared implicitly
+        SPI_StructInit(&SPI_InitStructure);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(64): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(64): error:  #20: identifier "RCC_APB2Periph_SPI1" is undefined
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(67): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin   = CONTROLLER_SPI_SS_PIN;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(68): error:  #136: struct "<unnamed>" has no field "GPIO_Speed"
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_3;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(68): error:  #20: identifier "GPIO_Speed_Level_3" is undefined
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_3;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(69): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(69): error:  #20: identifier "GPIO_Mode_OUT" is undefined
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(70): warning:  #223-D: function "GPIO_Init" declared implicitly
+        GPIO_Init(CONTROLLER_SPI_SS_PORT, &GPIO_InitStructure);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(73): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin = CONTROLLER_SPI_DC_PIN;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(77): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin = CONTROLLER_SPI_RST_PIN;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(84): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin   = CONTROLLER_SPI_SCK_PIN | CONTROLLER_SPI_MISO_PIN | CONTROLLER_SPI_MOSI_PIN;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(85): error:  #136: struct "<unnamed>" has no field "GPIO_Speed"
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_3;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(86): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(86): error:  #20: identifier "GPIO_Mode_AF" is undefined
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(90): warning:  #223-D: function "GPIO_PinAFConfig" declared implicitly
+        GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_SCK_PINSRC,GPIO_AF_0);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(90): error:  #20: identifier "GPIO_PinSource5" is undefined
+        GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_SCK_PINSRC,GPIO_AF_0);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(90): error:  #20: identifier "GPIO_AF_0" is undefined
+        GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_SCK_PINSRC,GPIO_AF_0);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(91): error:  #20: identifier "GPIO_PinSource7" is undefined
+        GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_MOSI_PINSRC,GPIO_AF_0);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(92): error:  #20: identifier "GPIO_PinSource6" is undefined
+        GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_MISO_PINSRC,GPIO_AF_0);
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(95): error:  #136: struct "<unnamed>" has no field "SPI_Direction"
+        SPI_InitStructure.SPI_Direction         = SPI_Direction_2Lines_FullDuplex;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(95): error:  #20: identifier "SPI_Direction_2Lines_FullDuplex" is undefined
+        SPI_InitStructure.SPI_Direction         = SPI_Direction_2Lines_FullDuplex;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(96): error:  #136: struct "<unnamed>" has no field "SPI_Mode"
+        SPI_InitStructure.SPI_Mode              = SPI_Mode_Master;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(96): error:  #20: identifier "SPI_Mode_Master" is undefined
+        SPI_InitStructure.SPI_Mode              = SPI_Mode_Master;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(97): error:  #136: struct "<unnamed>" has no field "SPI_DataSize"
+        SPI_InitStructure.SPI_DataSize          = SPI_DataSize_8b;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(97): error:  #20: identifier "SPI_DataSize_8b" is undefined
+        SPI_InitStructure.SPI_DataSize          = SPI_DataSize_8b;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(98): error:  #136: struct "<unnamed>" has no field "SPI_CPOL"
+        SPI_InitStructure.SPI_CPOL              = SPI_CPOL_Low;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(98): error:  #20: identifier "SPI_CPOL_Low" is undefined
+        SPI_InitStructure.SPI_CPOL              = SPI_CPOL_Low;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(99): error:  #136: struct "<unnamed>" has no field "SPI_CPHA"
+        SPI_InitStructure.SPI_CPHA              = SPI_CPHA_2Edge;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(99): error:  #20: identifier "SPI_CPHA_2Edge" is undefined
+        SPI_InitStructure.SPI_CPHA              = SPI_CPHA_2Edge;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(100): error:  #136: struct "<unnamed>" has no field "SPI_NSS"
+        SPI_InitStructure.SPI_NSS               = SPI_NSS_Soft;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(100): error:  #20: identifier "SPI_NSS_Soft" is undefined
+        SPI_InitStructure.SPI_NSS               = SPI_NSS_Soft;
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(101): error:  #136: struct "<unnamed>" has no field "SPI_BaudRatePrescaler"
+        SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32; /* Set clock speed! */
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c(101): error:  #20: identifier "SPI_BaudRatePrescaler_32" is undefined
+        SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32; /* Set clock speed! */
+..\libs\andygock-glcd-1010cbc\devices\STM32L1xx_glcd.c: 5 warnings, 30 errors
+"STM32L152RE_NUCLEO\STM32L152RE_NUCLEO.axf" - 30 Error(s), 5 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\prv\keilp\nd\MDK-ARM\RTE

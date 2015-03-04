@@ -32,18 +32,19 @@
 	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#if defined(GLCD_DEVICE_STM32F0XX)
+#if defined(GLCD_DEVICE_STM32L1XX)
 
 /* Includes from CMSIS and Peripheral Library */
-#include "stm32f0xx.h"
-#include "stm32f0xx_gpio.h"
-#include "stm32f0xx_spi.h"
-#include "stm32f0xx_rcc.h"
-#include "stm32f0xx_misc.h"
+//#include "stm32f0xx.h"
+//#include "stm32f0xx_gpio.h"
+//#include "stm32f0xx_spi.h"
+//#include "stm32f0xx_rcc.h"
+//#include "stm32f0xx_misc.h"
+#include "stm32l1xx_hal.h"
 
 /* Includes from GLCD */
 #include "../glcd.h"
-#include "inc/STM32F0xx.h"
+#include "inc/STM32L1xx_glcd.h"
 
 void glcd_init(void)
 {

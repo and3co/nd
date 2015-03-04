@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\Inc -I..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Device\ST\STM32L1xx\Include -I..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Include -I..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc -I..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\STM32L1xx_Nucleo -I..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\Components\Common -I..\..\STM32Cube_FW_L1_V1.1.0\Utilities\Log -I..\..\STM32Cube_FW_L1_V1.1.0\Utilities\CPU --C99
+-I D:\prv\keilp\nd\MDK-ARM\RTE
+-I C:\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.0.2\Device\Include
+-I C:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="513" -DSTM32L1XX_XL -DSTM32L152xE -DUSE_STM32L1XX_NUCLEO -DUSE_HAL_DRIVER -DGLCD_DEVICE_STM32L1XX -DGLCD_CONTROLLER_PCD8544 -DGLCD_USE_SPI
+-o stm32l152re_nucleo\pcd8544.o --omf_browse stm32l152re_nucleo\pcd8544.crf --depend stm32l152re_nucleo\pcd8544.d "..\libs\andygock-glcd-1010cbc\controllers\PCD8544.c"

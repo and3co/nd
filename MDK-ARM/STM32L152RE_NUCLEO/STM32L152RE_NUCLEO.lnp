@@ -48,6 +48,14 @@
 "stm32l152re_nucleo\main.o"
 "stm32l152re_nucleo\stm32l1xx_hal_msp.o"
 "stm32l152re_nucleo\stm32l1xx_it.o"
+"stm32l152re_nucleo\glcd.o"
+"stm32l152re_nucleo\graphics.o"
+"stm32l152re_nucleo\graphs.o"
+"stm32l152re_nucleo\text.o"
+"stm32l152re_nucleo\text_tiny.o"
+"stm32l152re_nucleo\unit_tests.o"
+"stm32l152re_nucleo\pcd8544.o"
+"stm32l152re_nucleo\stm32l1xx_glcd.o"
 --library_type=microlib --strict --scatter "STM32L152RE_NUCLEO\STM32L152RE_NUCLEO.sct"
 
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
