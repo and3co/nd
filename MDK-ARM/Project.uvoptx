@@ -82,27 +82,22 @@
         <Book>
           <Number>0</Number>
           <Title>User Manual (NUCLEO-L152RE)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.3.0\Documents\DM00105823.pdf</Path>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.2.0\Documents\DM00105823.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
-          <Title>Overview (NUCLEO-L152RE)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.3.0\Documents\DM00105918.pdf</Path>
+          <Title>Getting started (NUCLEO-L152RE)</Title>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.2.0\Documents\DM00105925.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>
-          <Title>Getting started (NUCLEO-L152RE)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.3.0\Documents\DM00105925.pdf</Path>
+          <Title>Schematics (NUCLEO-L152RE)</Title>
+          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.2.0\Documents\MB1136.pdf</Path>
         </Book>
         <Book>
           <Number>3</Number>
-          <Title>Schematics (NUCLEO-L152RE)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\Keil\STM32NUCLEO_BSP\1.3.0\Documents\MB1136.pdf</Path>
-        </Book>
-        <Book>
-          <Number>4</Number>
-          <Title>STM32 Nucleo board (NUCLEO-L152RE)</Title>
-          <Path>http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847/PF260002</Path>
+          <Title>Nucleo STM32 L1 series development board (NUCLEO-L152RE)</Title>
+          <Path>http://www.st.com/web/en/catalog/tools/PF260002</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -855,7 +850,7 @@
 
   <Group>
     <GroupName>Project/User</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -902,7 +897,7 @@
 
   <Group>
     <GroupName>Libs/GLCD</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

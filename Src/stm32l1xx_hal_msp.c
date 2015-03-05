@@ -37,6 +37,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "STM32L1xx_glcd.h"
 
 /** @addtogroup STM32L1xx_HAL_Examples
   * @{
@@ -104,6 +105,58 @@ void HAL_MspDeInit(void)
             modified by the user
    */
 /*}*/
+void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi){
+
+	GPIO_InitTypeDef  GPIO_InitStruct;
+
+	/*##-1- Enable peripherals and GPIO Clocks #################################*/
+	/* Enable GPIO TX/RX clock */
+	__GPIOA_CLK_ENABLE();
+	/* Enable SPI clock */
+	__SPI1_CLK_ENABLE();
+
+	/*##-2- Configure peripheral GPIO ##########################################*/  
+	/* SPI SCK GPIO pin configuration  */
+	GPIO_InitStruct.Pin       = CONTROLLER_SPI_SCK_PIN;
+	GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
+	GPIO_InitStruct.Pull      = GPIO_PULLDOWN;
+	GPIO_InitStruct.Speed     = GPIO_SPEED_HIGH;
+	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	/* SPI MISO GPIO pin configuration  */
+	GPIO_InitStruct.Pin = CONTROLLER_SPI_MISO_PIN;
+	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	/* SPI MOSI GPIO pin configuration  */
+	GPIO_InitStruct.Pin = CONTROLLER_SPI_MOSI_PIN;
+	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+/**
+  * @brief SPI MSP De-Initialization 
+  *        This function frees the hardware resources used in this example:
+  *          - Disable the Peripheral's clock
+  *          - Revert GPIO configuration to its default state
+  * @param hspi: SPI handle pointer
+  * @retval None
+  */
+void HAL_SPI_MspDeInit(SPI_HandleTypeDef *hspi)
+{
+	/*##-1- Reset peripherals ##################################################*/
+	__SPI1_FORCE_RESET();
+	__SPI1_RELEASE_RESET();
+	
+	/*##-2- Disable peripherals and GPIO Clocks ################################*/
+	/* Configure SPI SCK as alternate function  */
+	HAL_GPIO_DeInit(CONTROLLER_SPI_MOSI_PORT, SPIx_SCK_PIN);
+	/* Configure SPI MISO as alternate function  */
+	HAL_GPIO_DeInit(SPIx_MISO_GPIO_PORT, SPIx_MISO_PIN);
+	/* Configure SPI MOSI as alternate function  */
+	HAL_GPIO_DeInit(SPIx_MOSI_GPIO_PORT, SPIx_MOSI_PIN);
+}
 
 /**
   * @}

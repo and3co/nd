@@ -54,7 +54,8 @@ void glcd_init(void)
 
 	/* Declare GPIO and SPI init structures */
 	GPIO_InitTypeDef GPIO_InitStructure;
-	SPI_InitTypeDef  SPI_InitStructure;
+	//SPI_InitTypeDef  SPI_InitStructure;
+	SPI_HandleTypeDef  SPI_Handle;
   //NVIC_InitTypeDef NVIC_InitStructure;
 	
 	/* Initialise structures (which we will overide later) */
@@ -63,8 +64,7 @@ void glcd_init(void)
 	
 	/* Need to make start up the correct peripheral clocks */
 	//RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
-	__SPI1_CLK_ENABLE();
-
+	
 	/* SS pin */
 	GPIO_InitStructure.Pin   = CONTROLLER_SPI_SS_PIN;
 	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
