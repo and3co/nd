@@ -73,7 +73,8 @@
 	//#include <stm32f0xx_gpio.h>
 	#include <stdint.h>
 	#include "devices/inc/STM32L1xx_glcd.h"
-	extern void delay_ms(uint32_t ms);
+	//extern void delay_ms(uint32_t ms);
+	#define delay_ms(t) HAL_Delay(t)
 	#define PROGMEM
 
 #elif defined(GLCD_DEVICE_STM32F4XX)

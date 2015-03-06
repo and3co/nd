@@ -45,6 +45,7 @@
 /* Includes from GLCD */
 #include "../glcd.h"
 #include "inc/STM32L1xx_glcd.h"
+SPI_HandleTypeDef  SPI_Handle;
 
 void glcd_init(void)
 {
@@ -54,56 +55,44 @@ void glcd_init(void)
 
 	/* Declare GPIO and SPI init structures */
 	GPIO_InitTypeDef GPIO_InitStructure;
-	//SPI_InitTypeDef  SPI_InitStructure;
-	SPI_HandleTypeDef  SPI_Handle;
-  //NVIC_InitTypeDef NVIC_InitStructure;
-	
-	/* Initialise structures (which we will overide later) */
-	//GPIO_StructInit(&GPIO_InitStructure);
-	//SPI_StructInit(&SPI_InitStructure);
+	//NVIC_InitTypeDef NVIC_InitStructure;
 	
 	/* Need to make start up the correct peripheral clocks */
 	//RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
-	
+		
 	/* SS pin */
+	CONTROLLER_SPI_SS_CLK_ENA();
 	GPIO_InitStructure.Pin   = CONTROLLER_SPI_SS_PIN;
 	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
 	GPIO_InitStructure.Mode  = GPIO_MODE_OUTPUT_PP;
 	HAL_GPIO_Init(CONTROLLER_SPI_SS_PORT, &GPIO_InitStructure);
 	
 	/* DC pin */
+	CONTROLLER_SPI_DC_CLK_ENA();
 	GPIO_InitStructure.Pin = CONTROLLER_SPI_DC_PIN;
 	HAL_GPIO_Init(CONTROLLER_SPI_DC_PORT, &GPIO_InitStructure);
 
 	/* RESET pin */
+	CONTROLLER_SPI_RST_CLK_ENA();
 	GPIO_InitStructure.Pin = CONTROLLER_SPI_RST_PIN;
 	HAL_GPIO_Init(CONTROLLER_SPI_RST_PORT, &GPIO_InitStructure);
 
 	/* Make sure chip is de-selected by default */
 	GLCD_DESELECT();
 
-	/* Set up GPIO for SPI pins */
-	GPIO_InitStructure.Pin   = CONTROLLER_SPI_SCK_PIN | CONTROLLER_SPI_MISO_PIN | CONTROLLER_SPI_MOSI_PIN;
-	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
-	GPIO_InitStructure.Mode  = GPIO_MODE_AF_PP;
-	HAL_GPIO_Init(CONTROLLER_SPI_PORT, &GPIO_InitStructure);
-
-	/* Configure alternate function mode for SPI pins */
-	GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_SCK_PINSRC,GPIO_AF_0);
-	GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_MOSI_PINSRC,GPIO_AF_0);
-	GPIO_PinAFConfig(GPIOA,CONTROLLER_SPI_MISO_PINSRC,GPIO_AF_0);
+	SPI_Handle.Instance = CONTROLLER_SPI_NUMBER;
 
 	/* Initialise SPI */
-	SPI_InitStructure.Direction         = SPI_Direction_2Lines_FullDuplex;
-	SPI_InitStructure.Mode              = SPI_Mode_Master;
-	SPI_InitStructure.DataSize          = SPI_DataSize_8b;
-	SPI_InitStructure.CLKPolarity       = SPI_CPOL_Low;
-	SPI_InitStructure.CLKPhase          = SPI_CPHA_2Edge;
-	SPI_InitStructure.NSS               = SPI_NSS_Soft;
-	SPI_InitStructure.BaudRatePrescaler = SPI_BaudRatePrescaler_32; /* Set clock speed! */
-	SPI_InitStructure.FirstBit          = SPI_FirstBit_MSB;
-	SPI_InitStructure.CRCPolynomial     = 7;
-	HAL_SPI_Init(CONTROLLER_SPI_NUMBER, &SPI_InitStructure);
+	SPI_Handle.Init.Direction         = SPI_DIRECTION_2LINES;
+	SPI_Handle.Init.Mode              = SPI_MODE_MASTER;
+	SPI_Handle.Init.DataSize          = SPI_DATASIZE_8BIT;
+	SPI_Handle.Init.CLKPolarity       = SPI_POLARITY_LOW;
+	SPI_Handle.Init.CLKPhase          = SPI_PHASE_2EDGE;
+	SPI_Handle.Init.NSS               = SPI_NSS_SOFT;
+	SPI_Handle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32; /* Set clock speed! */
+	SPI_Handle.Init.FirstBit          = SPI_FIRSTBIT_MSB;
+	SPI_Handle.Init.CRCPolynomial     = 7;
+	HAL_SPI_Init(&SPI_Handle);
 
 	/* Enable SPI interupts */
 	/*
@@ -114,9 +103,6 @@ void glcd_init(void)
 	NVIC_Init(&NVIC_InitStructure);
 	*/
 	
-	/* Enable SPI */
-	SPI_Cmd(CONTROLLER_SPI_NUMBER, ENABLE);
-
 	/* Initialisation sequence of controller */
 	glcd_reset();
 
@@ -152,10 +138,10 @@ void glcd_spi_write(uint8_t c)
 {
 
 	GLCD_SELECT();
-	SPI_SendData8(CONTROLLER_SPI_NUMBER, (uint16_t) c);
+	HAL_SPI_Transmit(&SPI_Handle, &c, sizeof(c), 400);
 	
 	/* Wait until entire byte has been read (which we discard anyway) */
-	while(SPI_I2S_GetFlagStatus(CONTROLLER_SPI_NUMBER, SPI_I2S_FLAG_BSY) != RESET);
+	//while(SPI_I2S_GetFlagStatus(CONTROLLER_SPI_NUMBER, SPI_I2S_FLAG_BSY) != RESET);
 
 	GLCD_DESELECT();
 }

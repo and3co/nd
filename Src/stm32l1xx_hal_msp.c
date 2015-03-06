@@ -111,9 +111,11 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi){
 
 	/*##-1- Enable peripherals and GPIO Clocks #################################*/
 	/* Enable GPIO TX/RX clock */
-	__GPIOA_CLK_ENABLE();
+	CONTROLLER_SPI_SCK_CLK_ENA();
+	CONTROLLER_SPI_MISO_CLK_ENA();
+	CONTROLLER_SPI_MOSI_CLK_ENA();
 	/* Enable SPI clock */
-	__SPI1_CLK_ENABLE();
+	CONTROLLER_SPI_CLK_ENA();
 
 	/*##-2- Configure peripheral GPIO ##########################################*/  
 	/* SPI SCK GPIO pin configuration  */
@@ -121,18 +123,18 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi){
 	GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
 	GPIO_InitStruct.Pull      = GPIO_PULLDOWN;
 	GPIO_InitStruct.Speed     = GPIO_SPEED_HIGH;
-	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	GPIO_InitStruct.Alternate = CONTROLLER_SPI_SCK_AF;
+	HAL_GPIO_Init(CONTROLLER_SPI_SCK_PORT, &GPIO_InitStruct);
 
 	/* SPI MISO GPIO pin configuration  */
 	GPIO_InitStruct.Pin = CONTROLLER_SPI_MISO_PIN;
-	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	GPIO_InitStruct.Alternate = CONTROLLER_SPI_MISO_AF;
+	HAL_GPIO_Init(CONTROLLER_SPI_MISO_PORT, &GPIO_InitStruct);
 
 	/* SPI MOSI GPIO pin configuration  */
 	GPIO_InitStruct.Pin = CONTROLLER_SPI_MOSI_PIN;
-	GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	GPIO_InitStruct.Alternate = CONTROLLER_SPI_MOSI_AF;
+	HAL_GPIO_Init(CONTROLLER_SPI_MOSI_PORT, &GPIO_InitStruct);
 }
 
 /**
@@ -151,11 +153,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef *hspi)
 	
 	/*##-2- Disable peripherals and GPIO Clocks ################################*/
 	/* Configure SPI SCK as alternate function  */
-	HAL_GPIO_DeInit(CONTROLLER_SPI_MOSI_PORT, SPIx_SCK_PIN);
+	HAL_GPIO_DeInit(CONTROLLER_SPI_SCK_PORT, CONTROLLER_SPI_SCK_PIN);
 	/* Configure SPI MISO as alternate function  */
-	HAL_GPIO_DeInit(SPIx_MISO_GPIO_PORT, SPIx_MISO_PIN);
+	HAL_GPIO_DeInit(CONTROLLER_SPI_MISO_PORT, CONTROLLER_SPI_MISO_PIN);
 	/* Configure SPI MOSI as alternate function  */
-	HAL_GPIO_DeInit(SPIx_MOSI_GPIO_PORT, SPIx_MOSI_PIN);
+	HAL_GPIO_DeInit(CONTROLLER_SPI_MOSI_PORT, CONTROLLER_SPI_MOSI_PIN);
 }
 
 /**

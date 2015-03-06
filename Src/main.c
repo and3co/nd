@@ -37,6 +37,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "glcd.h"
 
 /** @addtogroup STM32L1xx_HAL_Examples
   * @{
@@ -79,14 +80,16 @@ int main(void)
   /* Configure the system clock to 32 MHz */
   SystemClock_Config();
 
-
   /* Add your application code here
      */
 
-
+	glcd_init();
+	
   /* Infinite loop */
   while (1)
   {
+	glcd_draw_circle(10,10,10,BLACK);
+	HAL_Delay(1000);
   }
 }
 

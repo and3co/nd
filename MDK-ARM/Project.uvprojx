@@ -123,7 +123,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>0</UseSimulator>
+            <UseSimulator>1</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -131,11 +131,11 @@
             <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
-            <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
+            <LimitSpeedToRealTime>1</LimitSpeedToRealTime>
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>1</UseTarget>
+            <UseTarget>0</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -147,7 +147,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>8</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -365,7 +365,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>STM32L152xE,USE_STM32L1XX_NUCLEO,USE_HAL_DRIVER,GLCD_DEVICE_STM32L1XX,GLCD_CONTROLLER_PCD8544,GLCD_USE_SPI</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\STM32L1xx_Nucleo;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\Components\Common;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\Log;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\CPU;..\libs\andygock-glcd-1010cbc\devices\inc</IncludePath>
+              <IncludePath>..\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\CMSIS\Include;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\STM32L1xx_Nucleo;..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\Components\Common;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\Log;..\..\STM32Cube_FW_L1_V1.1.0\Utilities\CPU;..\libs\andygock-glcd-1010cbc\devices\inc;..\libs\andygock-glcd-1010cbc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

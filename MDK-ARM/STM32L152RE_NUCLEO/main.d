@@ -55,3 +55,14 @@ stm32l152re_nucleo\main.o: ..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Dr
 stm32l152re_nucleo\main.o: ..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h
 stm32l152re_nucleo\main.o: ..\..\STM32Cube_FW_L1_V1.1.0\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h
 stm32l152re_nucleo\main.o: ..\..\STM32Cube_FW_L1_V1.1.0\Drivers\BSP\STM32L1xx_Nucleo\stm32l1xx_nucleo.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\devices/inc/STM32L1xx_glcd.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\controllers/PCD8544.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_devices.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\devices/inc/STM32L1xx_glcd.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_controllers.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_graphics.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_graphs.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_text_tiny.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\glcd_text.h
+stm32l152re_nucleo\main.o: ..\libs\andygock-glcd-1010cbc\unit_tests.h
